@@ -29,6 +29,7 @@ h1{
     flex-direction: column;
     width: 500px;
     min-height: 500px;
+    max-height: 500px;
     border: 6px solid #1f2937;
 }
 
