@@ -61,16 +61,16 @@ button#btn-draw-type {
 }
 
 button#btn-draw-type:hover{
-    background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
-    color: #ffffff;
-    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
-}
-
-button#btn-draw-type:active{
     background: none;
     text-shadow: none;
     background-color: #ffffff;
     color: #000000;
+}
+
+button#btn-draw-type:active{
+    background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+    color: #ffffff;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
 }
 
 button#btn-draw-type.rainbow{
@@ -82,15 +82,15 @@ button#btn-draw-type.rainbow{
 button#btn-draw-type:hover.rainbow{
     background: none;
     text-shadow: none;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 button#btn-draw-type:active.rainbow{
     background: none;
     text-shadow: none;
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #000000;
+    color: #ffffff;
 }
 
 button#btn-grid {

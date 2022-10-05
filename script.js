@@ -1,5 +1,4 @@
-// The color to be drawn on the grid. Will change if rainbow activated.
-let drawColor = "#000000";
+// Will change draw color of squares if rainbow activated.
 let rainbow = false;
 // target grid and btn-grid
 let gridSize = 16;
@@ -50,7 +49,7 @@ function addDrawListeners(){
     squares.forEach((square) => {
         //draw if mousedown, and enable drawing while mousedown.
         square.addEventListener('mousedown', () => {
-            square.style.backgroundColor = "#000000";
+            drawSquare(square);
             isDrawing = true;
         })
         // if mouseup, then turn off drawing.
@@ -60,7 +59,7 @@ function addDrawListeners(){
         // allows for click and hold drawing.
         square.addEventListener('mouseover', () => {
             if(isDrawing){
-                square.style.backgroundColor = "#000000";
+                drawSquare(square);
             }
         })
     })
@@ -68,7 +67,26 @@ function addDrawListeners(){
 
 /**
  * Given a square, draws in that square.
+ * @param square - the square to be colored.
  */
+function drawSquare(square){
+    // if rainbow, color the square a random color. otherwise, color it black.
+    if(rainbow){
+        let fillColor = getRandomColor();
+        square.style.backgroundColor = fillColor;
+    }
+    else {
+        square.style.backgroundColor = "#000000";
+    }
+}
+
+/**
+ * Returns a random hexcode.
+ */
+function getRandomColor(){
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    return "#" + randomColor;
+}
 
 /**
  * Removes the grid contents from the DOM.
@@ -107,6 +125,12 @@ function newGrid(){
  */
 function toggleDrawType(){
     btnDrawType.classList.toggle("rainbow");
+    if(rainbow){
+        rainbow = false;
+    }
+    else{
+        rainbow = true;
+    }
 }
 
 createGrid(gridSize);
