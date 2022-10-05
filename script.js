@@ -1,9 +1,14 @@
+// The color to be drawn on the grid. Will change if rainbow activated.
+let drawColor = "#000000";
+let rainbow = false;
 // target grid and btn-grid
 let gridSize = 16;
 let grid = document.querySelector("#grid");
 // set up btnGrid
 const btnGrid = document.querySelector("#btn-grid");
 btnGrid.addEventListener('click', newGrid);
+// set up btnDrawType
+const btnDrawType = document.querySelector("#btn-draw-type");
 
 /**
  * Creates an nxn grid of squares.
@@ -59,6 +64,10 @@ function addDrawListeners(){
         })
     })
 }
+
+/**
+ * Given a square, draws in that square.
+ */
 
 /**
  * Removes the grid contents from the DOM.
