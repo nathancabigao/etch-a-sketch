@@ -1,9 +1,13 @@
-// target grid
+// target grid and btn-grid
+let gridSize = 16;
 let grid = document.querySelector("#grid");
+// set up btnGrid
+const btnGrid = document.querySelector("#btn-grid");
+btnGrid.addEventListener('click', newGrid);
 
 /**
  * Creates an nxn grid of squares.
- * @param {Number} n    the number of rows and columns for the grid.
+ * @param {Number} n - the number of rows and columns for the grid.
  */
 function createGrid(n){
     // n times, append a "row" as a child.
@@ -56,4 +60,36 @@ function addDrawListeners(){
     })
 }
 
-createGrid(16);
+/**
+ * Removes the grid contents from the DOM.
+ */
+function removeGrid(){
+    // While there are still children of grid, remove the last child.
+    while (grid.firstChild){
+        grid.removeChild(grid.lastChild);
+    }
+}
+
+/**
+ * Event for btnGrid. Prompts the user for a new grid size, removes the old
+ * grid, and creates a new one of the size asked.
+ */
+function newGrid(){
+    let valid = false;
+    gridSize = parseInt(prompt('Enter a new width/height for the grid. (Up to 100 squares wide/tall)'));
+    while (!valid){
+        if(typeof gridSize != 'number' || isNaN(gridSize)){
+            gridSize = parseInt(prompt("Not a valid number. Enter a number up to 100."));
+        }
+        else if (gridSize <= 0 || gridSize > 100){
+            gridSize = parseInt(prompt("New width/height must be between 1 and 100 squares."));
+        }
+        else{
+            valid = true;
+        }
+    }
+    removeGrid();
+    createGrid(gridSize);
+}
+
+createGrid(gridSize);
