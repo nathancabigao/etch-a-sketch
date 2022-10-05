@@ -9,6 +9,7 @@ const btnGrid = document.querySelector("#btn-grid");
 btnGrid.addEventListener('click', newGrid);
 // set up btnDrawType
 const btnDrawType = document.querySelector("#btn-draw-type");
+btnDrawType.addEventListener('click', toggleDrawType);
 
 /**
  * Creates an nxn grid of squares.
@@ -99,6 +100,13 @@ function newGrid(){
     }
     removeGrid();
     createGrid(gridSize);
+}
+
+/**
+ * Changes the draw type between black and rainbow. Changes the appearance of the button.
+ */
+function toggleDrawType(){
+    btnDrawType.classList.toggle("rainbow");
 }
 
 createGrid(gridSize);

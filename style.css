@@ -73,6 +73,26 @@ button#btn-draw-type:active{
     color: #000000;
 }
 
+button#btn-draw-type.rainbow{
+    background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+    color: #ffffff;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+
+button#btn-draw-type:hover.rainbow{
+    background: none;
+    text-shadow: none;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+button#btn-draw-type:active.rainbow{
+    background: none;
+    text-shadow: none;
+    background-color: #ffffff;
+    color: #000000;
+}
+
 button#btn-grid {
     color: #1f2937;
     border: 2px solid #1f2937;
