@@ -1,13 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 h1{
+    display: flex;
     margin: .75em auto;
-    text-align: center;
-    font-weight: 700;
+    justify-content: center;
+    color: #1f2937;
+    font-weight: 300;
+    font-size: 36px;
 }
 
 #grid {
@@ -16,7 +29,7 @@ h1{
     flex-direction: column;
     width: 500px;
     height: 500px;
-    border: 3px solid #333333;
+    border: 6px solid #1f2937;
 }
 
 .grid-row {
@@ -26,7 +39,40 @@ h1{
 }
 
 .grid-square {
-    border: 1px solid #aaaaaa;
+    border: 1px solid rgba(50, 50, 50, 0.25);
     background-color: #ffffff;
     flex: 1 10px;
+}
+
+button#btn-grid {
+    cursor: pointer;
+    margin: 32px 0;
+    align-self: center;
+    padding: 1em 2em;
+    max-width: 200px;
+    font-weight: 700;
+    color: #1f2937;
+    border: 2px solid #1f2937;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+button#btn-grid:hover{
+    background-color: #1f2937;
+    color: #ffffff;
+}
+
+button#btn-grid:active{
+    background-color: #ffffff;
+    color: #1f2937;
+}
+
+#footer {
+    font-weight: 700;
+    display: flex;
+    margin-top: auto;
+    color: #ffffff;
+    background-color: #1f2937;
+    justify-content: center;
+    padding: 2em 0;
 }
