@@ -104,22 +104,35 @@ function removeGrid(){
  */
 function newGrid(){
     let valid = false;
-    gridSize = parseInt(prompt('Enter a new width/height for the grid. (Up to 100 squares wide/tall)'));
+    let newGridSize = 0;
     while (!valid){
-        if(typeof gridSize != 'number' || isNaN(gridSize)){
-            gridSize = parseInt(prompt("Not a valid number. Enter a number up to 100."));
+        newGridSize = prompt('Enter a new width/height for the grid. (Up to 100 squares wide/tall)');
+        if(newGridSize == null){
+            return;
         }
-        else if (gridSize <= 0 || gridSize > 100){
-            gridSize = parseInt(prompt("New width/height must be between 1 and 100 squares."));
-        }
-        else{
-            valid = true;
-        }
+        newGridSize = parseInt(newGridSize);
+        valid = validateGridSize(newGridSize);
     }
+    gridSize = newGridSize;
     removeGrid();
     createGrid(gridSize);
 }
 
+/**
+ * Validates whether or not the grid size given by the user input is valid.
+ * @return
+ */
+function validateGridSize(gridSize){
+    if(typeof gridSize != 'number' || isNaN(gridSize)){
+        alert("Not a valid number. Enter a number up to 100.");
+        return false;
+    }
+    else if (gridSize <= 0 || gridSize > 100){
+        alert("New width/height must be between 1 and 100 squares.");
+        return false;
+    }
+    return true;
+}
 /**
  * Changes the draw type between black and rainbow. Changes the appearance of the button.
  */
